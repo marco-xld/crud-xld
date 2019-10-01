@@ -1,2 +1,2 @@
 # crud-xld
-crud exam for xld
+crud sample for XLD, Integrated with Google Cloud DataStore
