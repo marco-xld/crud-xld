@@ -30,7 +30,7 @@ public class CrudController {
 	private CrudService crudService;
 
 	@GetMapping
-	public ResponseEntity<List<ContactDetails>> get() {
+	public ResponseEntity<List<ContactDetails>> getAll() {
 		return new ResponseEntity<>(crudService.getContactDetails(), HttpStatus.OK);
 	}
 	
@@ -44,7 +44,7 @@ public class CrudController {
 		return new ResponseEntity<>(crudService.update(contactDetails), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping
 	public ResponseEntity<Long> delete(@RequestParam("id") Long id) {
 		return new ResponseEntity<>(crudService.delete(id), HttpStatus.OK);
 	}

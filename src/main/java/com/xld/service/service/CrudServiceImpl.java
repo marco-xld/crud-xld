@@ -40,8 +40,8 @@ public class CrudServiceImpl implements CrudService {
 	}
 
 	@Override
-	public ContactDetails update(ContactDetails contracDetails) {
-		ContactDetails  updated = contactDetailRepository.save(contracDetails);
+	public ContactDetails update(ContactDetails contactDetails) {
+		ContactDetails  updated = contactDetailRepository.save(contactDetails);
 		return updated;
 	}
 
