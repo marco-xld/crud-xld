@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,11 +12,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.xld.service.service.ContactDetails;
 import com.xld.service.service.CrudService;
 
-@Controller
+/**
+ * 
+ * @author Marco Giovanne
+ *
+ */
+@RestController
 @RequestMapping(path = "/api/crud")
 public class CrudController {
 	
@@ -26,23 +31,22 @@ public class CrudController {
 
 	@GetMapping
 	public ResponseEntity<List<ContactDetails>> get() {
-		
 		return new ResponseEntity<>(crudService.getContactDetails(), HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<List<ContactDetails>> create(@RequestBody ContactDetails contactDetails) {
-		return new ResponseEntity<>(crudService.getContactDetails(), HttpStatus.OK);
+	public ResponseEntity<ContactDetails> create(@RequestBody ContactDetails contactDetails) {
+		return new ResponseEntity<>(crudService.create(contactDetails), HttpStatus.OK);
 	}
 	
 	@PutMapping
-	public ResponseEntity<List<ContactDetails>> update(@RequestBody ContactDetails contactDetails) {
-		return new ResponseEntity<>(crudService.getContactDetails(), HttpStatus.OK);
+	public ResponseEntity<ContactDetails> update(@RequestBody ContactDetails contactDetails) {
+		return new ResponseEntity<>(crudService.update(contactDetails), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<List<ContactDetails>> update(@RequestParam("id") Integer id) {
-		return new ResponseEntity<>(crudService.getContactDetails(), HttpStatus.OK);
+	public ResponseEntity<Long> delete(@RequestParam("id") Long id) {
+		return new ResponseEntity<>(crudService.delete(id), HttpStatus.OK);
 	}
 	
 }

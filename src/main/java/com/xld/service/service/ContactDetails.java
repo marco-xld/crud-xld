@@ -22,6 +22,14 @@ public class ContactDetails {
 		this.name = name;
 		this.email = email;
 		this.number = number;
+	}	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
