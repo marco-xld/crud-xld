@@ -26,6 +26,7 @@ public class CrudController {
 
 	@GetMapping
 	public ResponseEntity<List<ContactDetails>> get() {
+		
 		return new ResponseEntity<>(crudService.getContactDetails(), HttpStatus.OK);
 	}
 	
@@ -39,7 +40,7 @@ public class CrudController {
 		return new ResponseEntity<>(crudService.getContactDetails(), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/${id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<List<ContactDetails>> update(@RequestParam("id") Integer id) {
 		return new ResponseEntity<>(crudService.getContactDetails(), HttpStatus.OK);
 	}

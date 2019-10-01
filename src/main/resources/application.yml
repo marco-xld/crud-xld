@@ -1,2 +1,11 @@
 server:
   port: 8888
+spring:
+  cloud:
+    gcp:
+      datastore:
+        enabled: true
+        project-id: crud-xld
+        credentials:
+          location: classpath:crud-xld.json
+        namespace: xld
